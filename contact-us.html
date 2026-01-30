@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Laxmi Sales | Raipur, Chhattisgarh</title>
-    <meta name="description" content="Contact Laxmi Sales for industrial products. Reach Mr. Varenya Agrawal at 08071793971. Located at Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh, India.">
+    <meta name="description"
+        content="Contact Laxmi Sales for industrial products. Reach Mr. Varenya Agrawal at 08071793971. Located at Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh, India.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -63,7 +68,7 @@
                     <!-- Contact Details -->
                     <div class="contact-details">
                         <h3>Get In Touch</h3>
-                        
+
                         <div class="contact-item">
                             <i class="fas fa-user"></i>
                             <div>
@@ -76,7 +81,8 @@
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Mobile</h4>
-                                <p><a href="tel:+918071793971" style="color: #1a237e; text-decoration: none;">+91 8071793971</a></p>
+                                <p><a href="tel:+918071793971" style="color: #1a237e; text-decoration: none;">+91
+                                        8071793971</a></p>
                             </div>
                         </div>
 
@@ -114,8 +120,10 @@
                             <div class="form-group">
                                 <label>Mobile Number *</label>
                                 <div style="display: flex;">
-                                    <span style="padding: 12px 15px; background: #f8f9fa; border: 1px solid #ddd; border-right: none; border-radius: 8px 0 0 8px;">+91</span>
-                                    <input type="tel" name="mobile" placeholder="Enter mobile number" style="border-radius: 0 8px 8px 0;" required>
+                                    <span
+                                        style="padding: 12px 15px; background: #f8f9fa; border: 1px solid #ddd; border-right: none; border-radius: 8px 0 0 8px;">+91</span>
+                                    <input type="tel" name="mobile" placeholder="Enter mobile number"
+                                        style="border-radius: 0 8px 8px 0;" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -134,7 +142,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Your Requirement *</label>
-                                <textarea name="requirement" placeholder="Describe your requirement..." required></textarea>
+                                <textarea name="requirement" placeholder="Describe your requirement..."
+                                    required></textarea>
                             </div>
                             <button type="submit" class="btn btn-success" style="width: 100%;">
                                 <i class="fas fa-paper-plane"></i> Submit Inquiry
@@ -147,13 +156,16 @@
                 <div style="margin-top: 40px; background: #f8f9fa; padding: 30px; border-radius: 10px;">
                     <h3 style="color: #1a237e; margin-bottom: 20px; text-align: center;">Quick Contact Options</h3>
                     <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                        <a href="#" class="btn" onclick="alert('Feature: Get Quotation - Please call us or fill the inquiry form.')">
+                        <a href="#" class="btn"
+                            onclick="alert('Feature: Get Quotation - Please call us or fill the inquiry form.')">
                             <i class="fas fa-file-invoice-dollar"></i> Get Quotation
                         </a>
-                        <a href="#" class="btn btn-outline" onclick="alert('Feature: Get Price List - Please call us for detailed price list.')">
+                        <a href="#" class="btn btn-outline"
+                            onclick="alert('Feature: Get Price List - Please call us for detailed price list.')">
                             <i class="fas fa-list"></i> Get Price List
                         </a>
-                        <a href="#" class="btn btn-success" onclick="alert('Feature: Discuss Requirement - Please call us at 08071793971.')">
+                        <a href="#" class="btn btn-success"
+                            onclick="alert('Feature: Discuss Requirement - Please call us at 08071793971.')">
                             <i class="fas fa-comments"></i> Discuss Requirement
                         </a>
                     </div>
@@ -183,7 +195,8 @@
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-user"></i> Mr. Varenya Agrawal (Partner)</p>
                     <p><i class="fas fa-phone"></i> 08071793971</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh, India</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh,
+                        India</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -192,24 +205,39 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // Header hide/show on scroll
         let lastScrollTop = 0;
         let header = document.querySelector('.header');
         let headerHeight = header.offsetHeight;
-        
-        window.addEventListener('scroll', function() {
+        let scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', function () {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-                // Scrolling down - hide header
                 header.style.transform = 'translateY(-100%)';
             } else {
-                // Scrolling up - show header
                 header.style.transform = 'translateY(0)';
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+            if (scrollTop > 500) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
+
 </html>

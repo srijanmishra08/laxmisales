@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laxmi Sales - Product Brochure & Specifications</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #1a237e;
+            --primary-light: #534bae;
+            --secondary: #212121;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .header p {
+            color: #666;
+            margin: 10px 0 0;
+        }
+
+        .section-title {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            margin: 40px 0 20px;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--gray);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .section-title {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Laxmi Sales</h1>
+        <p>Manufacturer, Supplier & Trader of High-Purity Industrial Products</p>
+        <p><strong>Product Specification & Comparison Sheet</strong></p>
+    </div>
+
+    <!-- Product Comparison -->
+    <h2 class="section-title">Product Comparison Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Lead Tin Sulfide (PbSnS₂)</th>
+                <th>Tin(II) Sulfide (SnS)</th>
+                <th>Tin(IV) Sulfide (SnS₂)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Bandgap</strong></td>
+                <td>1.3–1.8 eV (tunable)</td>
+                <td>1.2–1.5 eV (direct)</td>
+                <td>2.2–2.35 eV</td>
+            </tr>
+            <tr>
+                <td><strong>Conductivity</strong></td>
+                <td>n-type or p-type</td>
+                <td>p-type (intrinsic)</td>
+                <td>n-type (intrinsic)</td>
+            </tr>
+            <tr>
+                <td><strong>Crystal Structure</strong></td>
+                <td>Orthorhombic</td>
+                <td>Orthorhombic</td>
+                <td>Hexagonal</td>
+            </tr>
+            <tr>
+                <td><strong>Color</strong></td>
+                <td>Dark gray/black</td>
+                <td>Dark brown/black</td>
+                <td>Gold-yellow</td>
+            </tr>
+            <tr>
+                <td><strong>Primary Applications</strong></td>
+                <td>Solar cells, IR detectors</td>
+                <td>Solar cells, Batteries</td>
+                <td>Gas sensors, Pigments</td>
+            </tr>
+            <tr>
+                <td><strong>Toxicity Profile</strong></td>
+                <td>Contains lead (Pb)</td>
+                <td>Low Toxicity</td>
+                <td>Low Toxicity</td>
+            </tr>
+            <tr>
+                <td><strong>Unique Advantage</strong></td>
+                <td>Bandgap tuning capability</td>
+                <td>Earth-abundant components</td>
+                <td>High selectivity in sensing</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Application Matrix -->
+    <h2 class="section-title">Application Suitability Matrix</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Application Area</th>
+                <th>PbSnS₂</th>
+                <th>SnS</th>
+                <th>SnS₂</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Solar Cells / PV</strong></td>
+                <td class="highlight">Excellent</td>
+                <td class="highlight">Excellent</td>
+                <td>Limited</td>
+            </tr>
+            <tr>
+                <td><strong>Photodetectors</strong></td>
+                <td class="highlight">Excellent (IR)</td>
+                <td class="highlight">Good (Vis-NIR)</td>
+                <td class="highlight">Good (UV-Vis)</td>
+            </tr>
+            <tr>
+                <td><strong>Gas Sensors</strong></td>
+                <td>Limited</td>
+                <td>Limited</td>
+                <td class="highlight">Excellent</td>
+            </tr>
+            <tr>
+                <td><strong>Li-ion Battery Anodes</strong></td>
+                <td>Limited</td>
+                <td class="highlight">Good</td>
+                <td class="highlight">Excellent</td>
+            </tr>
+            <tr>
+                <td><strong>Thermoelectrics</strong></td>
+                <td class="highlight">Good</td>
+                <td class="highlight">Good</td>
+                <td>Limited</td>
+            </tr>
+            <tr>
+                <td><strong>Decorative / Pigments</strong></td>
+                <td>No</td>
+                <td>No</td>
+                <td class="highlight">Excellent (Gold)</td>
+            </tr>
+            <tr>
+                <td><strong>Photocatalysis</strong></td>
+                <td>Limited</td>
+                <td class="highlight">Good</td>
+                <td class="highlight">Excellent</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Contact Info -->
+    <div style="margin-top: 40px; background: #f9f9f9; padding: 20px; border-radius: 8px;">
+        <h3>Contact for Details & Availability</h3>
+        <p><strong>Mr. Varenya Agrawal (Partner)</strong></p>
+        <p>Phone: +91 8071793971</p>
+        <p>Address: <br>Near Timber Market, Fafadih,<br>Raipur - 492001, Chhattisgarh, India</p>
+        <p>GST: 22AAFFL9858E1Z6</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Laxmi Sales. All Rights Reserved. | <a href="index.html">www.laxmisales.com</a>
+    </div>
+
+    <script>
+        // Auto-print prompt when opened
+        window.onload = function () {
+            setTimeout(function () {
+                // Uncomment to auto-print
+                // window.print(); 
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
