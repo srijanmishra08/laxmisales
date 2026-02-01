@@ -24,10 +24,10 @@
                     <span class="logo-text">Laxmi Sales</span>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="company-profile.html">Company Profile</a></li>
-                    <li><a href="products.html">Our Products</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">Company Profile</a></li>
+                    <li><a href="#products">Our Products</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
                 <div class="search-box">
                     <input type="text" placeholder="Search Products...">
@@ -39,7 +39,7 @@
 
     <!-- Banner -->
     <!-- Banner -->
-    <section class="banner">
+    <section class="banner" id="home">
         <video autoplay muted loop playsinline class="banner-video">
             <source src="assets/Herovideo.mov" type="video/mp4">
             <source src="assets/Herovideo.mov" type="video/quicktime">
@@ -51,12 +51,12 @@
             <p>Leading Manufacturer, Supplier & Trader of High-Quality Industrial Products</p>
             <p style="margin-top: 20px;">Choose from our wide range of Lead Tin Sulfide, Calcined Alumina Powder, and
                 more.</p>
-            <a href="products.html" class="btn" style="margin-top: 30px;">View Our Products</a>
+            <a href="#products" class="btn" style="margin-top: 30px;">View Our Products</a>
         </div>
     </section>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="about">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -68,10 +68,11 @@
                         manufacturing, construction, and chemical.</p>
                     <p>We remain a dependable partner to other businesses through our quality delivery and
                         customer-centric approach.</p>
-                    <a href="company-profile.html" class="btn mt-20">Learn More About Us</a>
+                    <a href="#who-we-are" class="btn mt-20">Learn More About Us</a>
                 </div>
                 <div class="hero-image">
-                    <img src="https://cpimg.tistatic.com//155480/1/template_photo_5.jpg" alt="Laxmi Sales Banner">
+                    <img src="https://cpimg.tistatic.com/10434183/b/4/Black-Lead-Tin-Sulfide..jpg"
+                        alt="Laxmi Sales Banner">
                 </div>
             </div>
         </div>
@@ -80,7 +81,7 @@
     </section>
 
     <!-- Company Profile Glimpse -->
-    <section class="profile-glimpse" style="padding: 100px 0; background: var(--white);">
+    <section class="profile-glimpse" id="who-we-are" style="padding: 100px 0; background: var(--white);">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -111,7 +112,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="company-profile.html" class="btn btn-outline" style="margin-top: 10px;">View Full
+                    <a href="#manufacturing" class="btn btn-outline" style="margin-top: 10px;">View Full
                         Profile</a>
                 </div>
                 <div class="hero-image">
@@ -122,10 +123,181 @@
         </div>
     </section>
 
-    <!-- Products Glimpse (Existing section will follow, we can enhance it or leave it as it is already a glimpse) -->
+    <!-- Manufacturing Facility Section -->
+    <section class="manufacturing" id="manufacturing" style="padding: 100px 0; background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Our Manufacturing Facility</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                <div
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🏢</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Production Plant</h3>
+                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">Our 5,000+ square meter manufacturing
+                        facility houses state-of-the-art equipment for crystal growth, thin film deposition, and
+                        material processing. The facility operates under strict quality control protocols with
+                        ISO-compliant manufacturing processes.</p>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔧</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Advanced Machinery</h3>
+                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">We utilize cutting-edge equipment
+                        including chemical vapor transport systems, Bridgman-Stockbarger crystal growers, RF sputtering
+                        targets, and precision thin film deposition systems. Our investment in technology ensures
+                        consistent product quality.</p>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🔬</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Quality Control Laboratory</h3>
+                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">Our in-house characterization
+                        laboratory features X-ray diffraction, scanning electron microscopy, optical spectroscopy, and
+                        electrical measurement systems. Every batch undergoes rigorous testing before shipment.</p>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">📦</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Packaging & Storage</h3>
+                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">Climate-controlled storage facilities
+                        and specialized packaging ensure material stability during storage and shipping. We offer
+                        various packaging options including vacuum-sealed containers and inert atmosphere packaging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Production Process Section -->
+    <section class="process" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Our Production Process</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div
+                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        1</div>
+                    <div style="font-size: 2rem; margin-bottom: 10px;">⚙️</div>
+                    <h3 style="color: #1a237e; margin-bottom: 10px;">Raw Material Preparation</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">High-purity starting materials
+                        (99.99%+) are sourced and carefully weighed according to precise stoichiometric ratios. Our
+                        supplier qualification process ensures consistent raw material quality.</p>
+                </div>
+                <div
+                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        2</div>
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔥</div>
+                    <h3 style="color: #1a237e; margin-bottom: 10px;">Synthesis & Crystal Growth</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Materials are synthesized using
+                        industry-standard methods including Chemical Vapor Transport (CVT), Bridgman-Stockbarger
+                        technique, and solution-based approaches. Temperature profiles are precisely controlled for
+                        optimal crystal quality.</p>
+                </div>
+                <div
+                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        3</div>
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔍</div>
+                    <h3 style="color: #1a237e; margin-bottom: 10px;">Characterization & Testing</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Every batch undergoes comprehensive
+                        testing including X-ray diffraction for crystal structure verification, composition analysis,
+                        and electrical property measurements. Certificates of Analysis are provided with all orders.</p>
+                </div>
+                <div
+                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        4</div>
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔧</div>
+                    <h3 style="color: #1a237e; margin-bottom: 10px;">Processing & Forming</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Materials are processed into required
+                        forms including single crystals, polycrystalline ingots, powders, thin films, and
+                        nanostructures. Custom processing available per customer specifications.</p>
+                </div>
+                <div
+                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        5</div>
+                    <div style="font-size: 2rem; margin-bottom: 10px;">✅</div>
+                    <h3 style="color: #1a237e; margin-bottom: 10px;">Quality Assurance</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Final quality inspection ensures all
+                        products meet specifications. Materials are labeled, packaged, and prepared for shipment with
+                        appropriate documentation including MSDS and certificates.</p>
+                </div>
+                <div
+                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        6</div>
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🌍</div>
+                    <h3 style="color: #1a237e; margin-bottom: 10px;">Global Distribution</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Products are shipped worldwide via
+                        secure packaging and reliable carriers. We handle all export documentation and customs
+                        requirements to ensure smooth delivery to your facility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve Section -->
+    <section class="industries" style="padding: 100px 0; background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">☀️</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Renewable Energy & Solar</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our tin sulfide
+                        materials are critical components in thin-film photovoltaic research and development.
+                        Universities, national laboratories, and solar technology companies worldwide use our materials
+                        to advance next-generation solar cell technology.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔎</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Sensors & Detection</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">The gas sensing
+                        and photodetection properties of our materials make them invaluable for environmental
+                        monitoring, industrial safety, and advanced imaging systems. Our materials enable development of
+                        highly selective and sensitive detectors.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔋</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Energy Storage</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">With the growing
+                        demand for advanced battery technologies, our materials serve as high-performance anode
+                        materials for next-generation lithium-ion and sodium-ion batteries. The layered crystal
+                        structure enables efficient ion intercalation.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🎨</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Coatings & Decorative</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our SnS₂ materials
+                        have been used for centuries as mosaic gold pigment. Today, they serve architectural,
+                        automotive, and industrial coating applications where durability and distinctive golden
+                        appearance are required.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔬</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Research & Academia</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">We serve the
+                        global research community by providing high-quality materials for fundamental studies and
+                        applied research. Our materials support publications, patents, and breakthrough discoveries at
+                        leading institutions worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Featured Products -->
-    <section class="products" style="padding: 100px 0; background: var(--white);">
+    <section class="products" id="products" style="padding: 100px 0; background: var(--white);">
         <div class="container">
             <h2 class="section-title">Tin Sulfide Semiconductor Products</h2>
             <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
@@ -169,8 +341,45 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-40">
-                <a href="products.html" class="btn">View All Products & Comparison</a>
+            <!-- Material Availability Forms -->
+            <div style="margin-top: 60px;">
+                <h2
+                    style="text-align: center; margin-bottom: 40px; font-family: var(--font-heading); font-size: 2rem; color: var(--primary-900);">
+                    Material Availability</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-gem" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 5px;">Single Crystals</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Research quantities, prototype devices</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-cube" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 5px;">Polycrystalline Ingots</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Substrate preparation, bulk studies</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-layer-group" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 5px;">Thin Films</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Device integration, custom specs</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-mortar-pestle"
+                            style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 5px;">Powders</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Precursor material, research applications
+                        </p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-atom" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 5px;">Nanostructures</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Sensing, catalytic applications</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
+                        <i class="fas fa-file-alt" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 5px;">Exfoliated Flakes</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin: 0;">2D material research</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -206,7 +415,7 @@
     </section>
 
     <!-- Contact Glimpse (Get in Touch) - Moved just before Footer -->
-    <section class="contact-glimpse" style="padding: 100px 0; background: var(--gray-50);">
+    <section class="contact-glimpse" id="contact" style="padding: 100px 0; background: var(--gray-50);">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
@@ -233,20 +442,68 @@
                 </div>
                 <div class="contact-form"
                     style="background: white; padding: 40px; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
-                    <h3 style="margin-bottom: 20px;">Quick Inquiry</h3>
+                    <h3 style="margin-bottom: 20px;">Send Inquiry</h3>
                     <form action="#" method="post">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name *</label>
+                            <input type="text" name="name" placeholder="Enter your name" required
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;">
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Mobile Number" style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Mobile Number *</label>
+                            <div style="display: flex; margin-bottom: 15px;">
+                                <span
+                                    style="padding: 10px 15px; background: #f8f9fa; border: 1px solid #ddd; border-right: none; border-radius: 8px 0 0 8px;">+91</span>
+                                <input type="tel" name="mobile" placeholder="Enter mobile number"
+                                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 0 8px 8px 0;"
+                                    required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message or Requirement"
-                                style="min-height: 100px; margin-bottom: 15px;"></textarea>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Email Address</label>
+                            <input type="email" name="email" placeholder="Enter your email"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;">
                         </div>
-                        <button type="submit" class="btn btn-success" style="width: 100%;">Send Message</button>
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Product
+                                Interest</label>
+                            <select name="product"
+                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;">
+                                <option value="">Select Product</option>
+                                <option value="Lead Tin Sulfide (PbSnS₂)">Lead Tin Sulfide (PbSnS₂)</option>
+                                <option value="Tin(II) Sulfide (SnS)">Tin(II) Sulfide (SnS)</option>
+                                <option value="Tin(IV) Sulfide (SnS₂)">Tin(IV) Sulfide (SnS₂)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Your Requirement
+                                *</label>
+                            <textarea name="requirement" placeholder="Describe your requirement..." required
+                                style="width: 100%; min-height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success" style="width: 100%;"><i
+                                class="fas fa-paper-plane"></i> Submit Inquiry</button>
                     </form>
+                </div>
+            </div>
+
+            <!-- Quick Contact Options -->
+            <div style="margin-top: 40px; background: #f8f9fa; padding: 30px; border-radius: 10px;">
+                <h3 style="color: #1a237e; margin-bottom: 20px; text-align: center;">Quick Contact Options</h3>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="#" class="btn"
+                        onclick="alert('Feature: Get Quotation - Please call us or fill the inquiry form.')">
+                        <i class="fas fa-file-invoice-dollar"></i> Get Quotation
+                    </a>
+                    <a href="#" class="btn btn-outline"
+                        onclick="alert('Feature: Get Price List - Please call us for detailed price list.')">
+                        <i class="fas fa-list"></i> Get Price List
+                    </a>
+                    <a href="#" class="btn btn-success"
+                        onclick="alert('Feature: Discuss Requirement - Please call us at 08071793971.')">
+                        <i class="fas fa-comments"></i> Discuss Requirement
+                    </a>
                 </div>
             </div>
         </div>
@@ -264,10 +521,10 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="company-profile.html">Company Profile</a>
-                    <a href="products.html">Our Products</a>
-                    <a href="contact-us.html">Contact Us</a>
+                    <a href="#home">Home</a>
+                    <a href="#about">Company Profile</a>
+                    <a href="#products">Our Products</a>
+                    <a href="#contact">Contact Us</a>
                 </div>
                 <div class="footer-section">
                     <h3>Our Products</h3>

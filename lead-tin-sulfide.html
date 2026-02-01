@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
 </head>
 
 <body>
@@ -38,9 +40,9 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="company-profile.html">Company Profile</a></li>
-                    <li><a href="products.html" class="active">Our Products</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="index.html#about">Company Profile</a></li>
+                    <li><a href="index.html#products" class="active">Our Products</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
                 </ul>
                 <div class="search-box">
                     <input type="text" placeholder="Search Products...">
@@ -78,8 +80,8 @@
                         </div>
                         <div class="mt-20">
                             <a href="contact-us.html" class="btn"><i class="fas fa-envelope"></i> Send Inquiry</a>
-                            <a href="tel:08071793971" class="btn btn-outline" style="margin-left: 10px;"><i
-                                    class="fas fa-phone"></i> Call Back</a>
+                            <button onclick="generatePDF()" class="btn btn-outline" style="margin-left: 10px;"><i
+                                    class="fas fa-file-pdf"></i> Download Brochure</button>
                         </div>
                     </div>
                 </div>
@@ -124,9 +126,9 @@
                 </div>
 
                 <!-- Physical Properties -->
-                <div class="specifications">
+                <div class="specifications" style="display: none;">
                     <h3>Physical Properties</h3>
-                    <table class="spec-table">
+                    <table class="spec-table" id="physical-table">
                         <tr>
                             <td>Chemical Formula</td>
                             <td>PbSnS₂ or Pb₁₋ₓSnₓS</td>
@@ -159,9 +161,9 @@
                 </div>
 
                 <!-- Electronic Properties -->
-                <div class="specifications">
+                <div class="specifications" style="display: none;">
                     <h3>Electronic Properties</h3>
-                    <table class="spec-table">
+                    <table class="spec-table" id="electronic-table">
                         <tr>
                             <td>Bandgap Range</td>
                             <td>1.3–1.8 eV (tunable)</td>
@@ -219,9 +221,9 @@
                 </div>
 
                 <!-- Trade Information -->
-                <div class="trade-info">
+                <div class="trade-info" style="display: none;">
                     <h3>Trade Information</h3>
-                    <table class="spec-table">
+                    <table class="spec-table" id="trade-table">
                         <tr>
                             <td>Minimum Order Quantity</td>
                             <td>100 Kilograms</td>
@@ -309,6 +311,66 @@
     <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <script>
+        window.generatePDF = function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Header
+            doc.setFontSize(22);
+            doc.setTextColor(26, 35, 126); // Primary color
+            doc.text("Laxmi Sales", 14, 20);
+
+            doc.setFontSize(12);
+            doc.setTextColor(100);
+            doc.text("Lead Tin Sulfide (PbSnS₂) - Product Brochure", 14, 30);
+
+            let yPos = 40;
+
+            // Physical Properties
+            doc.setFontSize(16);
+            doc.setTextColor(26, 35, 126);
+            doc.text("Physical Properties", 14, yPos);
+            doc.autoTable({
+                html: '#physical-table',
+                startY: yPos + 5,
+                theme: 'grid',
+                headStyles: { fillColor: [26, 35, 126] }
+            });
+            yPos = doc.lastAutoTable.finalY + 20;
+
+            // Electronic Properties
+            doc.text("Electronic Properties", 14, yPos);
+            doc.autoTable({
+                html: '#electronic-table',
+                startY: yPos + 5,
+                theme: 'grid',
+                headStyles: { fillColor: [26, 35, 126] }
+            });
+            yPos = doc.lastAutoTable.finalY + 20;
+
+            // Trade Information
+            doc.text("Trade Information", 14, yPos);
+            doc.autoTable({
+                html: '#trade-table',
+                startY: yPos + 5,
+                theme: 'grid',
+                headStyles: { fillColor: [26, 35, 126] }
+            });
+
+            // Footer
+            const pageCount = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+                doc.setFontSize(10);
+                doc.setTextColor(150);
+                doc.text('Contact: +91 8071793971 | www.laxmisales.com', 14, doc.internal.pageSize.height - 10);
+            }
+
+            doc.save('Laxmi_Sales_PbSnS2_Brochure.pdf');
+        };
+    </script>
 
     <script>
         let lastScrollTop = 0;
