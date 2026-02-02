@@ -11,6 +11,263 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About Us Dropdown Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown > a {
+            cursor: pointer;
+        }
+        .nav-dropdown > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 6px;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        .nav-dropdown:hover > a::after {
+            transform: rotate(180deg);
+        }
+        .about-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 420px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .nav-dropdown:hover .about-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .about-dropdown h4 {
+            color: #1a237e;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .about-dropdown p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .about-dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .about-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #444;
+        }
+        .about-dropdown-item i {
+            color: #4caf50;
+        }
+        .about-dropdown .btn-link {
+            color: #1a237e;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            transition: gap 0.3s ease;
+        }
+        .about-dropdown .btn-link:hover {
+            gap: 10px;
+        }
+        
+        /* Our Story Section */
+        .story-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eaf6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26,35,126,0.03) 0%, rgba(26,35,126,0.08) 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .story-content h2 {
+            font-size: 2.8rem;
+            color: #1a237e;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        .story-content .subtitle {
+            font-size: 1.2rem;
+            color: #5c6bc0;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .story-content p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a237e;
+            display: block;
+        }
+        .stat-item .label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .story-visual {
+            position: relative;
+        }
+        .story-visual img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .story-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: #1a237e;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(26,35,126,0.3);
+        }
+        .story-badge .badge-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        .story-badge .badge-text {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Process Timeline */
+        .process-timeline {
+            padding: 100px 0;
+            background: white;
+        }
+        .timeline-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .timeline-header h2 {
+            font-size: 2.5rem;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        .timeline-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0, #1a237e);
+        }
+        .timeline-step {
+            text-align: center;
+            position: relative;
+            flex: 1;
+            padding: 0 15px;
+        }
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(26,35,126,0.3);
+        }
+        .timeline-step h4 {
+            color: #1a237e;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .timeline-step p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .about-dropdown {
+                width: 320px;
+            }
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .story-content h2 {
+                font-size: 2rem;
+            }
+            .timeline-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .timeline-steps::before {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -25,7 +282,20 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">Company Profile</a></li>
+                    <li class="nav-dropdown">
+                        <a>About Us</a>
+                        <div class="about-dropdown">
+                            <h4><i class="fas fa-building"></i> Laxmi Sales</h4>
+                            <p>Founded in <strong>2017</strong> in Raipur, Chhattisgarh, we are a premier manufacturer and supplier of high-purity semiconductor materials including Lead Tin Sulfide, Tin(II) Sulfide, and Tin(IV) Sulfide.</p>
+                            <div class="about-dropdown-grid">
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> ISO Compliance</div>
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> Global Export</div>
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> R&D Focused</div>
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> Custom Synthesis</div>
+                            </div>
+                            <a href="company-profile.html" class="btn-link">View Full Profile <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </li>
                     <li><a href="#products">Our Products</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
@@ -41,262 +311,19 @@
     <!-- Banner -->
     <section class="banner" id="home">
         <video autoplay muted loop playsinline class="banner-video">
-            <source src="assets/Herovideo.mov" type="video/mp4">
-            <source src="assets/Herovideo.mov" type="video/quicktime">
+            <source src="assets/Herovideo_new.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="banner-overlay"></div>
         <div class="container">
-            <h1>Welcome to Laxmi Sales</h1>
-            <p>Leading Manufacturer, Supplier & Trader of High-Quality Industrial Products</p>
-            <p style="margin-top: 20px;">Choose from our wide range of Lead Tin Sulfide, Calcined Alumina Powder, and
-                more.</p>
-            <a href="#products" class="btn" style="margin-top: 30px;">View Our Products</a>
+            <h1>Premium Semiconductor Materials</h1>
+            <p>High-Purity Tin Sulfide Compounds for Advanced Research & Industry</p>
+            <p style="margin-top: 20px;">Trusted by leading universities, research labs, and technology companies worldwide.</p>
+            <a href="#products" class="btn" style="margin-top: 30px;">Explore Our Products</a>
         </div>
     </section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="about">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2>About Laxmi Sales</h2>
-                    <p>At Laxmi Sales, we are leading manufacturer, supplier, and trader to high-quality industrial
-                        products such as Lead Tin Sulfide, Calcined Alumina Powder, and many others.</p>
-                    <p>Established in the markets for decades now, we hold a strong track record of premium quality
-                        products offered to meet every requirement of clients from various segments of industries-
-                        manufacturing, construction, and chemical.</p>
-                    <p>We remain a dependable partner to other businesses through our quality delivery and
-                        customer-centric approach.</p>
-                    <a href="#who-we-are" class="btn mt-20">Learn More About Us</a>
-                </div>
-                <div class="hero-image">
-                    <img src="https://cpimg.tistatic.com/10434183/b/4/Black-Lead-Tin-Sulfide..jpg"
-                        alt="Laxmi Sales Banner">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </section>
-
-    <!-- Company Profile Glimpse -->
-    <section class="profile-glimpse" id="who-we-are" style="padding: 100px 0; background: var(--white);">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Who We Are</h2>
-                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">Laxmi Sales, founded in
-                        <strong>2017</strong> in Raipur, Chhattisgarh, is a premier manufacturer and supplier of
-                        high-purity semiconductor materials. We are driven by a commitment to quality, innovation, and
-                        customer satisfaction.
-                    </p>
-                    <div class="key-facts"
-                        style="padding: 20px; box-shadow: none; border: none; background: transparent; padding-left: 0;">
-                        <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <li style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.2rem;"></i>
-                                <span>ISO Compliance</span>
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.2rem;"></i>
-                                <span>Global Export</span>
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.2rem;"></i>
-                                <span>R&D Focused</span>
-                            </li>
-                            <li style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: var(--success); font-size: 1.2rem;"></i>
-                                <span>Custom Synthesis</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="#manufacturing" class="btn btn-outline" style="margin-top: 10px;">View Full
-                        Profile</a>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/logo.jpg" alt="Laxmi Sales Logo"
-                        style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Manufacturing Facility Section -->
-    <section class="manufacturing" id="manufacturing" style="padding: 100px 0; background: var(--white);">
-        <div class="container">
-            <h2 class="section-title">Our Manufacturing Facility</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-                <div
-                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">🏢</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Production Plant</h3>
-                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">Our 5,000+ square meter manufacturing
-                        facility houses state-of-the-art equipment for crystal growth, thin film deposition, and
-                        material processing. The facility operates under strict quality control protocols with
-                        ISO-compliant manufacturing processes.</p>
-                </div>
-                <div
-                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔧</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Advanced Machinery</h3>
-                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">We utilize cutting-edge equipment
-                        including chemical vapor transport systems, Bridgman-Stockbarger crystal growers, RF sputtering
-                        targets, and precision thin film deposition systems. Our investment in technology ensures
-                        consistent product quality.</p>
-                </div>
-                <div
-                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">🔬</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Quality Control Laboratory</h3>
-                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">Our in-house characterization
-                        laboratory features X-ray diffraction, scanning electron microscopy, optical spectroscopy, and
-                        electrical measurement systems. Every batch undergoes rigorous testing before shipment.</p>
-                </div>
-                <div
-                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 16px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">📦</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Packaging & Storage</h3>
-                    <p style="color: #555; font-size: 0.95rem; line-height: 1.7;">Climate-controlled storage facilities
-                        and specialized packaging ensure material stability during storage and shipping. We offer
-                        various packaging options including vacuum-sealed containers and inert atmosphere packaging.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Production Process Section -->
-    <section class="process" style="padding: 100px 0; background: var(--gray-50);">
-        <div class="container">
-            <h2 class="section-title">Our Production Process</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-                <div
-                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
-                    <div
-                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        1</div>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">⚙️</div>
-                    <h3 style="color: #1a237e; margin-bottom: 10px;">Raw Material Preparation</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">High-purity starting materials
-                        (99.99%+) are sourced and carefully weighed according to precise stoichiometric ratios. Our
-                        supplier qualification process ensures consistent raw material quality.</p>
-                </div>
-                <div
-                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
-                    <div
-                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        2</div>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🔥</div>
-                    <h3 style="color: #1a237e; margin-bottom: 10px;">Synthesis & Crystal Growth</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Materials are synthesized using
-                        industry-standard methods including Chemical Vapor Transport (CVT), Bridgman-Stockbarger
-                        technique, and solution-based approaches. Temperature profiles are precisely controlled for
-                        optimal crystal quality.</p>
-                </div>
-                <div
-                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
-                    <div
-                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        3</div>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🔍</div>
-                    <h3 style="color: #1a237e; margin-bottom: 10px;">Characterization & Testing</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Every batch undergoes comprehensive
-                        testing including X-ray diffraction for crystal structure verification, composition analysis,
-                        and electrical property measurements. Certificates of Analysis are provided with all orders.</p>
-                </div>
-                <div
-                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
-                    <div
-                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        4</div>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🔧</div>
-                    <h3 style="color: #1a237e; margin-bottom: 10px;">Processing & Forming</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Materials are processed into required
-                        forms including single crystals, polycrystalline ingots, powders, thin films, and
-                        nanostructures. Custom processing available per customer specifications.</p>
-                </div>
-                <div
-                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
-                    <div
-                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        5</div>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">✅</div>
-                    <h3 style="color: #1a237e; margin-bottom: 10px;">Quality Assurance</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Final quality inspection ensures all
-                        products meet specifications. Materials are labeled, packaged, and prepared for shipment with
-                        appropriate documentation including MSDS and certificates.</p>
-                </div>
-                <div
-                    style="background: white; border: 2px solid #e0e0e0; padding: 25px; border-radius: 16px; position: relative;">
-                    <div
-                        style="position: absolute; top: -15px; left: 25px; background: #1a237e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        6</div>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🌍</div>
-                    <h3 style="color: #1a237e; margin-bottom: 10px;">Global Distribution</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7;">Products are shipped worldwide via
-                        secure packaging and reliable carriers. We handle all export documentation and customs
-                        requirements to ensure smooth delivery to your facility.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries We Serve Section -->
-    <section class="industries" style="padding: 100px 0; background: var(--white);">
-        <div class="container">
-            <h2 class="section-title">Industries We Serve</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">☀️</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Renewable Energy & Solar</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our tin sulfide
-                        materials are critical components in thin-film photovoltaic research and development.
-                        Universities, national laboratories, and solar technology companies worldwide use our materials
-                        to advance next-generation solar cell technology.</p>
-                </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔎</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Sensors & Detection</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">The gas sensing
-                        and photodetection properties of our materials make them invaluable for environmental
-                        monitoring, industrial safety, and advanced imaging systems. Our materials enable development of
-                        highly selective and sensitive detectors.</p>
-                </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔋</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Energy Storage</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">With the growing
-                        demand for advanced battery technologies, our materials serve as high-performance anode
-                        materials for next-generation lithium-ion and sodium-ion batteries. The layered crystal
-                        structure enables efficient ion intercalation.</p>
-                </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🎨</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Coatings & Decorative</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our SnS₂ materials
-                        have been used for centuries as mosaic gold pigment. Today, they serve architectural,
-                        automotive, and industrial coating applications where durability and distinctive golden
-                        appearance are required.</p>
-                </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔬</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Research & Academia</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">We serve the
-                        global research community by providing high-quality materials for fundamental studies and
-                        applied research. Our materials support publications, patents, and breakthrough discoveries at
-                        leading institutions worldwide.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
+    <!-- Featured Products - Now First -->
     <section class="products" id="products" style="padding: 100px 0; background: var(--white);">
         <div class="container">
             <h2 class="section-title">Tin Sulfide Semiconductor Products</h2>
@@ -379,6 +406,127 @@
                         <h4 style="margin-bottom: 5px;">Exfoliated Flakes</h4>
                         <p style="font-size: 0.9rem; color: #666; margin: 0;">2D material research</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <p class="subtitle">The Art of Precision</p>
+                    <h2>Crafting Tomorrow's Technology</h2>
+                    <p>Every crystal we grow tells a story of precision, patience, and passion. Our tin sulfide semiconductors begin their journey as carefully sourced raw materials of 99.99%+ purity, transforming through controlled synthesis into materials that power the future.</p>
+                    <p>From solar cells capturing sunlight to sensors detecting the invisible, our materials enable breakthrough innovations across the globe. We don't just manufacture compounds—we craft the building blocks of next-generation technology.</p>
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="number">99.99%</span>
+                            <span class="label">Material Purity</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">50+</span>
+                            <span class="label">Research Partners</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="number">2017</span>
+                            <span class="label">Est. Year</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-visual">
+                    <img src="https://cpimg.tistatic.com/10434183/b/4/Black-Lead-Tin-Sulfide..jpg" alt="Tin Sulfide Crystal">
+                    <div class="story-badge">
+                        <span class="badge-number">8+</span>
+                        <span class="badge-text">Years of Excellence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It's Made - Process Timeline -->
+    <section class="process-timeline">
+        <div class="container">
+            <div class="timeline-header">
+                <h2>How Our Materials Are Made</h2>
+                <p>A meticulous journey from raw elements to research-grade semiconductors</p>
+            </div>
+            <div class="timeline-steps">
+                <div class="timeline-step">
+                    <div class="step-icon">⚙️</div>
+                    <h4>Source & Prepare</h4>
+                    <p>High-purity starting materials carefully weighed to precise stoichiometric ratios</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon">🔥</div>
+                    <h4>Synthesize & Grow</h4>
+                    <p>Crystal growth using CVT and Bridgman-Stockbarger techniques</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon">🔬</div>
+                    <h4>Test & Verify</h4>
+                    <p>X-ray diffraction and spectroscopy for quality verification</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon">📦</div>
+                    <h4>Package & Ship</h4>
+                    <p>Vacuum-sealed packaging with full documentation worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve Section -->
+    <section class="industries" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">☀️</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Renewable Energy & Solar</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our tin sulfide
+                        materials are critical components in thin-film photovoltaic research and development.
+                        Universities, national laboratories, and solar technology companies worldwide use our materials
+                        to advance next-generation solar cell technology.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔎</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Sensors & Detection</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">The gas sensing
+                        and photodetection properties of our materials make them invaluable for environmental
+                        monitoring, industrial safety, and advanced imaging systems. Our materials enable development of
+                        highly selective and sensitive detectors.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔋</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Energy Storage</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">With the growing
+                        demand for advanced battery technologies, our materials serve as high-performance anode
+                        materials for next-generation lithium-ion and sodium-ion batteries. The layered crystal
+                        structure enables efficient ion intercalation.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🎨</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Coatings & Decorative</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our SnS₂ materials
+                        have been used for centuries as mosaic gold pigment. Today, they serve architectural,
+                        automotive, and industrial coating applications where durability and distinctive golden
+                        appearance are required.</p>
+                </div>
+                <div
+                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔬</div>
+                    <h3 style="color: #1a237e; margin-bottom: 15px;">Research & Academia</h3>
+                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">We serve the
+                        global research community by providing high-quality materials for fundamental studies and
+                        applied research. Our materials support publications, patents, and breakthrough discoveries at
+                        leading institutions worldwide.</p>
                 </div>
             </div>
         </div>

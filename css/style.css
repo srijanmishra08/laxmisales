@@ -457,16 +457,19 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     position: relative;
 }
 
 .logo img {
-    height: 50px;
+    height: 48px;
+    width: 48px;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all var(--transition-bounce);
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    object-fit: cover;
+    background: white;
 }
 
 .logo:hover img {
