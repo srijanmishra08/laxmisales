@@ -250,14 +250,45 @@
         
         @media (max-width: 768px) {
             .about-dropdown {
-                width: 320px;
+                position: fixed;
+                left: 16px !important;
+                right: 16px !important;
+                width: auto !important;
+                transform: none;
+                max-width: none;
             }
             .story-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
             .story-content h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                text-align: center;
+            }
+            .story-content .subtitle {
+                text-align: center;
+                font-size: 1rem;
+            }
+            .story-content p {
+                font-size: 1rem;
+                text-align: center;
+            }
+            .story-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            .stat-item .number {
+                font-size: 1.8rem;
+            }
+            .stat-item .label {
+                font-size: 0.8rem;
+            }
+            .story-badge {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                margin-top: 20px;
+                text-align: center;
             }
             .timeline-steps {
                 flex-direction: column;
@@ -265,6 +296,151 @@
             }
             .timeline-steps::before {
                 display: none;
+            }
+            .timeline-header h2 {
+                font-size: 1.8rem;
+            }
+            .step-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            .story-section {
+                padding: 60px 0;
+            }
+            .process-timeline {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-dropdown {
+                padding: 20px;
+            }
+            .about-dropdown h4 {
+                font-size: 1rem;
+            }
+            .about-dropdown p {
+                font-size: 0.85rem;
+            }
+            .about-dropdown-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .story-content h2 {
+                font-size: 1.5rem;
+            }
+            .story-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .stat-item .number {
+                font-size: 2rem;
+            }
+            .step-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            .timeline-step h4 {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile responsive overrides for inline styles */
+        @media (max-width: 768px) {
+            /* Contact section grid */
+            .contact-glimpse > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 30px !important;
+            }
+            
+            /* Contact cards grid */
+            .contact-glimpse div[style*="grid-template-columns: 1fr 1fr; gap: 16px"] {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+            
+            /* Form two-column fields */
+            .contact-glimpse form > div[style*="grid-template-columns: 1fr 1fr"] {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 16px !important;
+            }
+            
+            /* Material availability grid */
+            div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            
+            /* Products grid override */
+            .products-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            /* Features/Why Choose grid */
+            .features {
+                padding: 60px 0 !important;
+            }
+            
+            /* Contact section padding */
+            .contact-glimpse {
+                padding: 60px 0 !important;
+            }
+            
+            /* Address bar mobile */
+            div[style*="display: flex; align-items: center; gap: 16px;"] {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 12px !important;
+            }
+            
+            /* Contact form mobile */
+            .contact-glimpse form > div[style*="margin-bottom: 20px"] input,
+            .contact-glimpse form > div[style*="margin-bottom: 20px"] select,
+            .contact-glimpse form > div[style*="margin-bottom: 24px"] textarea {
+                width: 100% !important;
+            }
+            
+            /* Industry Applications grid */
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))"] {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Industry applications section padding */
+            section[style*="padding: 100px 0; background: #fafafa"] {
+                padding: 60px 0 !important;
+            }
+            
+            /* Products section padding */
+            .products {
+                padding: 60px 0 !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-glimpse iframe {
+                min-height: 200px !important;
+            }
+            
+            .products-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Smaller contact cards */
+            .contact-card {
+                padding: 18px !important;
+            }
+            
+            /* Contact form container */
+            .contact-glimpse div[style*="padding: 40px"] {
+                padding: 24px !important;
             }
         }
     </style>
@@ -286,12 +462,12 @@
                         <a>About Us</a>
                         <div class="about-dropdown">
                             <h4><i class="fas fa-building"></i> Laxmi Sales</h4>
-                            <p>Founded in <strong>2017</strong> in Raipur, Chhattisgarh, we are a premier manufacturer and supplier of high-purity semiconductor materials including Lead Tin Sulfide, Tin(II) Sulfide, and Tin(IV) Sulfide.</p>
+                            <p>Established in <strong>2017</strong> in Raipur, Chhattisgarh, we are a leading manufacturer and supplier of high-purity semiconductor materials for advanced research and industrial applications.</p>
                             <div class="about-dropdown-grid">
-                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> ISO Compliance</div>
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> ISO Certified</div>
                                 <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> Global Export</div>
-                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> R&D Focused</div>
-                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> Custom Synthesis</div>
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> R&D Excellence</div>
+                                <div class="about-dropdown-item"><i class="fas fa-check-circle"></i> Custom Solutions</div>
                             </div>
                             <a href="company-profile.html" class="btn-link">View Full Profile <i class="fas fa-arrow-right"></i></a>
                         </div>
@@ -299,10 +475,6 @@
                     <li><a href="#products">Our Products</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
-                <div class="search-box">
-                    <input type="text" placeholder="Search Products...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
             </div>
         </nav>
     </header>
@@ -562,96 +734,95 @@
         </div>
     </section>
 
-    <!-- Contact Glimpse (Get in Touch) - Moved just before Footer -->
-    <section class="contact-glimpse" id="contact" style="padding: 100px 0; background: var(--gray-50);">
+    <!-- Contact Section with Map -->
+    <section class="contact-glimpse" id="contact" style="padding: 100px 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-                <div class="contact-details"
-                    style="padding: 0; background: transparent; box-shadow: none; border: none;">
-                    <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--gray-600);">Ready to discuss your
-                        material requirements? Our team is here to assist you with technical specifications, pricing,
-                        and custom orders.</p>
-
-                    <div class="contact-item" style="background: white;">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Direct Line</h4>
-                            <p>+91 8071793971 (Mr. Varenya Agrawal)</p>
-                        </div>
+            <p style="text-align: center; color: var(--gray-600); font-size: 1.1rem; max-width: 600px; margin: -30px auto 50px;">Ready to discuss your material requirements? Our team is here to help.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch;">
+                <!-- Left: Contact Info + Map -->
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <!-- Contact Cards -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <a href="tel:+918071793971" style="text-decoration: none;">
+                            <div class="contact-card" style="background: white; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer;">
+                                <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                                    <i class="fas fa-phone-alt" style="color: white; font-size: 1.2rem;"></i>
+                                </div>
+                                <h4 style="color: #1e293b; font-size: 0.9rem; margin-bottom: 4px;">Call Us</h4>
+                                <p style="color: #6366f1; font-weight: 600; font-size: 1rem; margin: 0;">+91 80717 93971</p>
+                            </div>
+                        </a>
+                        <a href="mailto:info@laxmisales.com" style="text-decoration: none;">
+                            <div class="contact-card" style="background: white; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer;">
+                                <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                                    <i class="fas fa-envelope" style="color: white; font-size: 1.2rem;"></i>
+                                </div>
+                                <h4 style="color: #1e293b; font-size: 0.9rem; margin-bottom: 4px;">Email</h4>
+                                <p style="color: #10b981; font-weight: 600; font-size: 1rem; margin: 0;">info@laxmisales.com</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="contact-item" style="background: white;">
-                        <i class="fas fa-map-marked-alt"></i>
+                    
+                    <!-- Map -->
+                    <div style="flex: 1; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); min-height: 280px;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.847068668034!2d81.6296!3d21.2514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dda23be28229%3A0x5f0329e7a7b0c3d7!2sFafadih%2C%20Raipur%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1706847200000!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; min-height: 280px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Address Bar -->
+                    <div style="background: white; padding: 20px 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 16px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-map-marker-alt" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
                         <div>
-                            <h4>Location</h4>
-                            <p>Raipur, Chhattisgarh, India</p>
+                            <h4 style="color: #1e293b; font-size: 0.9rem; margin-bottom: 2px;">Our Location</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh, India</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form"
-                    style="background: white; padding: 40px; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
-                    <h3 style="margin-bottom: 20px;">Send Inquiry</h3>
+                
+                <!-- Right: Inquiry Form -->
+                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.1);">
+                    <h3 style="margin-bottom: 8px; font-size: 1.5rem; color: #1e293b;">Send Inquiry</h3>
+                    <p style="color: #64748b; margin-bottom: 24px; font-size: 0.95rem;">We'll get back to you within 24 hours</p>
                     <form action="#" method="post">
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name *</label>
-                            <input type="text" name="name" placeholder="Enter your name" required
-                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;">
+                        <div style="margin-bottom: 20px;">
+                            <input type="text" name="name" placeholder="Your Name *" required
+                                style="width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; transition: all 0.3s; outline: none;">
                         </div>
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Mobile Number *</label>
-                            <div style="display: flex; margin-bottom: 15px;">
-                                <span
-                                    style="padding: 10px 15px; background: #f8f9fa; border: 1px solid #ddd; border-right: none; border-radius: 8px 0 0 8px;">+91</span>
-                                <input type="tel" name="mobile" placeholder="Enter mobile number"
-                                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 0 8px 8px 0;"
-                                    required>
-                            </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                            <input type="tel" name="mobile" placeholder="Phone Number *" required
+                                style="width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; outline: none;">
+                            <input type="email" name="email" placeholder="Email Address"
+                                style="width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; outline: none;">
                         </div>
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Email Address</label>
-                            <input type="email" name="email" placeholder="Enter your email"
-                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;">
-                        </div>
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Product
-                                Interest</label>
+                        <div style="margin-bottom: 20px;">
                             <select name="product"
-                                style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;">
-                                <option value="">Select Product</option>
+                                style="width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; color: #64748b; outline: none; background: white;">
+                                <option value="">Select Product of Interest</option>
                                 <option value="Lead Tin Sulfide (PbSnS₂)">Lead Tin Sulfide (PbSnS₂)</option>
                                 <option value="Tin(II) Sulfide (SnS)">Tin(II) Sulfide (SnS)</option>
                                 <option value="Tin(IV) Sulfide (SnS₂)">Tin(IV) Sulfide (SnS₂)</option>
-                                <option value="Other">Other</option>
+                                <option value="Other">Other / Custom Requirement</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label style="display: block; margin-bottom: 5px; font-weight: 500;">Your Requirement
-                                *</label>
-                            <textarea name="requirement" placeholder="Describe your requirement..." required
-                                style="width: 100%; min-height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px;"></textarea>
+                        <div style="margin-bottom: 24px;">
+                            <textarea name="requirement" placeholder="Describe your requirement... *" required
+                                style="width: 100%; min-height: 120px; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; resize: vertical; outline: none;"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success" style="width: 100%;"><i
-                                class="fas fa-paper-plane"></i> Submit Inquiry</button>
+                        <button type="submit" class="btn btn-success" style="width: 100%; padding: 16px; font-size: 1.05rem;">
+                            <i class="fas fa-paper-plane"></i> Submit Inquiry
+                        </button>
                     </form>
-                </div>
-            </div>
-
-            <!-- Quick Contact Options -->
-            <div style="margin-top: 40px; background: #f8f9fa; padding: 30px; border-radius: 10px;">
-                <h3 style="color: #1a237e; margin-bottom: 20px; text-align: center;">Quick Contact Options</h3>
-                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                    <a href="#" class="btn"
-                        onclick="alert('Feature: Get Quotation - Please call us or fill the inquiry form.')">
-                        <i class="fas fa-file-invoice-dollar"></i> Get Quotation
-                    </a>
-                    <a href="#" class="btn btn-outline"
-                        onclick="alert('Feature: Get Price List - Please call us for detailed price list.')">
-                        <i class="fas fa-list"></i> Get Price List
-                    </a>
-                    <a href="#" class="btn btn-success"
-                        onclick="alert('Feature: Discuss Requirement - Please call us at 08071793971.')">
-                        <i class="fas fa-comments"></i> Discuss Requirement
-                    </a>
                 </div>
             </div>
         </div>
@@ -665,33 +836,74 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#home">Home</a>
-                    <a href="#about">Company Profile</a>
-                    <a href="#products">Our Products</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Our Products</h3>
-                    <a href="lead-tin-sulfide.html">Lead Tin Sulfide (PbSnS₂)</a>
-                    <a href="tin-ii-sulfide.html">Tin(II) Sulfide (SnS)</a>
-                    <a href="tin-iv-sulfide.html">Tin(IV) Sulfide (SnS₂)</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-user"></i> Mr. Varenya Agrawal (Partner)</p>
-                    <p><i class="fas fa-phone"></i> 08071793971</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh,
-                        India</p>
-                    <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;"><i class="fas fa-file-invoice"></i>
-                        GST: 22AAFFL9858E1Z6</p>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Brand Column -->
+                    <div class="footer-brand">
+                        <h3>Laxmi Sales</h3>
+                        <p>Leading manufacturer and supplier of high-purity tin sulfide semiconductor materials for advanced research and industrial applications worldwide.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="mailto:info@laxmisales.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <a href="#home">Home</a>
+                        <a href="company-profile.html">About Us</a>
+                        <a href="#products">Products</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    
+                    <!-- Products -->
+                    <div class="footer-column">
+                        <h4>Products</h4>
+                        <a href="lead-tin-sulfide.html">Lead Tin Sulfide</a>
+                        <a href="tin-ii-sulfide.html">Tin(II) Sulfide</a>
+                        <a href="tin-iv-sulfide.html">Tin(IV) Sulfide</a>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div class="footer-column">
+                        <h4>Get in Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h5>Phone</h5>
+                                <a href="tel:+918071793971">+91 80717 93971</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <a href="mailto:info@laxmisales.com">info@laxmisales.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Raipur, Chhattisgarh, India</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Laxmi Sales. All Rights Reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Laxmi Sales. All Rights Reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

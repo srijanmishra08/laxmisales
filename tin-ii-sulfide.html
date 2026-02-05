@@ -11,6 +11,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @media (max-width: 768px) {
+            .page-layout { grid-template-columns: 1fr !important; }
+            .main-content h1 { font-size: 1.5rem !important; }
+            table { font-size: 0.85rem; }
+            table td, table th { padding: 10px 8px; }
+            .product-detail { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+            .main-content h1 { font-size: 1.3rem !important; }
+            table { font-size: 0.8rem; }
+            .btn { padding: 10px 16px; font-size: 0.85rem; }
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
 </head>
@@ -18,36 +32,18 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="company-info">
-                    <span class="company-name">Laxmi Sales</span>
-                    <span class="gst-number">GST: 22AAFFL9858E1Z6</span>
-                </div>
-                <div class="contact-header">
-                    <div class="call-now">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:08071793971">Call us now: 08071793971</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <nav class="navbar">
             <div class="container nav-container">
                 <div class="logo">
-                    <img src="https://tiimg.tistatic.com/catalogs/template152083/profile.png" alt="Laxmi Sales Logo">
+                    <img src="assets/logo.jpg" alt="Laxmi Sales Logo">
                     <span class="logo-text">Laxmi Sales</span>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">Company Profile</a></li>
-                    <li><a href="index.html#products" class="active">Our Products</a></li>
-                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li><a href="company-profile.html">About Us</a></li>
+                    <li><a href="products.html" class="active">Our Products</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
                 </ul>
-                <div class="search-box">
-                    <input type="text" placeholder="Search Products...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
             </div>
         </nav>
     </header>
@@ -343,31 +339,67 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="company-profile.html">Company Profile</a>
-                    <a href="products.html">Our Products</a>
-                    <a href="contact-us.html">Contact Us</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Our Products</h3>
-                    <a href="lead-tin-sulfide.html">Lead Tin Sulfide (PbSnS₂)</a>
-                    <a href="tin-ii-sulfide.html">Tin(II) Sulfide (SnS)</a>
-                    <a href="tin-iv-sulfide.html">Tin(IV) Sulfide (SnS₂)</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-user"></i> Mr. Varenya Agrawal (Partner)</p>
-                    <p><i class="fas fa-phone"></i> 08071793971</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Near Timber Market, Fafadih, Raipur - 492001, Chhattisgarh,
-                        India</p>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <h3>Laxmi Sales</h3>
+                        <p>Leading manufacturer and supplier of high-purity tin sulfide semiconductor materials for advanced research and industrial applications worldwide.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="mailto:info@laxmisales.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="company-profile.html">About Us</a>
+                        <a href="products.html">Products</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Products</h4>
+                        <a href="lead-tin-sulfide.html">Lead Tin Sulfide</a>
+                        <a href="tin-ii-sulfide.html">Tin(II) Sulfide</a>
+                        <a href="tin-iv-sulfide.html">Tin(IV) Sulfide</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Get in Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h5>Phone</h5>
+                                <a href="tel:+918071793971">+91 80717 93971</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <a href="mailto:info@laxmisales.com">info@laxmisales.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Raipur, Chhattisgarh, India</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Laxmi Sales. All Rights Reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Laxmi Sales. All Rights Reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
