@@ -12,6 +12,214 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Material Card Styles with Hover Effects */
+        .material-card {
+            background: #f8f9fa;
+            padding: 25px 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.95);
+            opacity: 0.7;
+        }
+        .material-card.in-view {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .material-card:hover {
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            box-shadow: 0 20px 40px rgba(26, 35, 126, 0.25);
+            z-index: 10;
+        }
+        .material-card i {
+            font-size: 2.2rem;
+            color: #1a237e;
+            margin-bottom: 12px;
+            display: block;
+            transition: all 0.4s ease;
+        }
+        .material-card:hover i {
+            color: white;
+            transform: scale(1.15);
+        }
+        .material-card h4 {
+            margin-bottom: 8px;
+            color: #1a237e;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+        }
+        .material-card:hover h4 {
+            color: white;
+        }
+        .material-card .material-short {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+            transition: all 0.4s ease;
+        }
+        .material-card:hover .material-short {
+            color: rgba(255,255,255,0.8);
+        }
+        .material-card .material-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        .material-card:hover .material-details {
+            max-height: 200px;
+            margin-top: 15px;
+        }
+        .material-card .material-details p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin: 0;
+            text-align: left;
+        }
+        .material-grid {
+            perspective: 1000px;
+        }
+        
+        /* Industries We Serve Section Styles */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .industries-grid .industry-card:nth-child(4),
+        .industries-grid .industry-card:nth-child(5) {
+            grid-column: span 1;
+        }
+        @media (max-width: 1024px) {
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .industry-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(30px) scale(0.95);
+            opacity: 0;
+        }
+        .industry-card.in-view {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .industry-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        .industry-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        .industry-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+        .industry-card:hover .industry-image img {
+            transform: scale(1.1);
+            filter: brightness(0.4);
+        }
+        .industry-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 1), transparent);
+            transition: height 0.4s ease;
+        }
+        .industry-card:hover .industry-overlay {
+            height: 100%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7));
+        }
+        .industry-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            z-index: 2;
+        }
+        .industry-content h3 {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+        .industry-card:hover .industry-content h3 {
+            margin-bottom: 15px;
+        }
+        .industry-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .industry-card:hover .industry-content p {
+            max-height: 200px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+        }
+        .industry-card:hover .industry-tags {
+            max-height: 100px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .industry-tags span {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.4));
+            color: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+        }
+        .industry-tags span:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(139, 92, 246, 0.6));
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+        .industry-card:hover .industry-tags span {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5));
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        
         /* About Us Dropdown Styles */
         .nav-dropdown {
             position: relative;
@@ -181,15 +389,16 @@
             opacity: 0.9;
         }
         
-        /* Process Timeline */
+        /* Process Timeline - Clean Horizontal Zigzag */
         .process-timeline {
-            padding: 100px 0;
-            background: white;
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            overflow: hidden;
         }
         .timeline-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 60px;
+            margin: 0 auto 80px;
         }
         .timeline-header h2 {
             font-size: 2.5rem;
@@ -200,52 +409,150 @@
             color: #666;
             font-size: 1.1rem;
         }
-        .timeline-steps {
+        .timeline-zigzag {
+            position: relative;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+        /* Main horizontal line */
+        .timeline-line {
+            position: absolute;
+            left: 60px;
+            right: 60px;
+            top: 50%;
+            height: 5px;
+            background: linear-gradient(90deg, #1a237e, #5c6bc0, #1a237e);
+            border-radius: 3px;
+            z-index: 1;
+        }
+        .timeline-items {
             display: flex;
             justify-content: space-between;
             position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
+            z-index: 2;
         }
-        .timeline-steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 3px;
-            background: linear-gradient(90deg, #1a237e, #5c6bc0, #1a237e);
-        }
-        .timeline-step {
-            text-align: center;
-            position: relative;
+        .timeline-item {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
             padding: 0 15px;
         }
-        .step-icon {
-            width: 80px;
-            height: 80px;
+        /* Top content area */
+        .timeline-top {
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 25px;
+        }
+        /* Icon circle in the middle */
+        .timeline-icon {
+            width: 75px;
+            height: 75px;
             background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
+            box-shadow: 0 10px 35px rgba(26,35,126,0.4);
+            border: 5px solid white;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .timeline-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 45px rgba(26,35,126,0.5);
+        }
+        .timeline-icon i {
+            font-size: 1.7rem;
             color: white;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(26,35,126,0.3);
         }
-        .timeline-step h4 {
+        /* Bottom content area */
+        .timeline-bottom {
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 25px;
+        }
+        .timeline-content {
+            text-align: center;
+            max-width: 280px;
+        }
+        .timeline-content h4 {
             color: #1a237e;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
-        .timeline-step p {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .timeline-content p {
+            color: #444;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        /* Odd items: content on top */
+        .timeline-item:nth-child(odd) .timeline-top .timeline-content {
+            display: block;
+        }
+        .timeline-item:nth-child(odd) .timeline-bottom .timeline-content {
+            display: none;
+        }
+        /* Even items: content on bottom */
+        .timeline-item:nth-child(even) .timeline-top .timeline-content {
+            display: none;
+        }
+        .timeline-item:nth-child(even) .timeline-bottom .timeline-content {
+            display: block;
+        }
+        
+        /* Mobile */
+        @media (max-width: 900px) {
+            .timeline-zigzag {
+                padding: 0 20px;
+            }
+            .timeline-line {
+                display: none;
+            }
+            .timeline-items {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .timeline-item {
+                flex-direction: row;
+                gap: 25px;
+                padding: 0;
+            }
+            .timeline-top, .timeline-bottom {
+                height: auto;
+                padding: 0;
+            }
+            .timeline-item:nth-child(odd) .timeline-top,
+            .timeline-item:nth-child(even) .timeline-bottom {
+                display: none;
+            }
+            .timeline-item:nth-child(odd) .timeline-bottom .timeline-content,
+            .timeline-item:nth-child(even) .timeline-top .timeline-content {
+                display: block;
+            }
+            .timeline-content {
+                text-align: left;
+                max-width: none;
+            }
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                flex-shrink: 0;
+            }
+            .timeline-icon i {
+                font-size: 1.4rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -453,7 +760,7 @@
         <nav class="navbar">
             <div class="container nav-container">
                 <div class="logo">
-                    <img src="assets/logo.jpg" alt="Laxmi Sales Logo">
+                    <img src="assets/logo1.png" alt="Laxmi Sales Logo">
                     <span class="logo-text">Laxmi Sales</span>
                 </div>
                 <ul class="nav-menu">
@@ -545,38 +852,54 @@
                 <h2
                     style="text-align: center; margin-bottom: 40px; font-family: var(--font-heading); font-size: 2rem; color: var(--primary-900);">
                     Material Availability</h2>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
-                        <i class="fas fa-gem" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
-                        <h4 style="margin-bottom: 5px;">Single Crystals</h4>
-                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Research quantities, prototype devices</p>
+                <div class="material-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div class="material-card">
+                        <i class="fas fa-gem"></i>
+                        <h4>Single Crystals</h4>
+                        <p class="material-short">Research quantities, prototype devices</p>
+                        <div class="material-details">
+                            <p>High-purity single crystals grown using Bridgman-Stockbarger technique. Ideal for fundamental research, spectroscopy studies, and prototype device fabrication. Available in various orientations and sizes.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
-                        <i class="fas fa-cube" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
-                        <h4 style="margin-bottom: 5px;">Polycrystalline Ingots</h4>
-                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Substrate preparation, bulk studies</p>
+                    <div class="material-card">
+                        <i class="fas fa-cube"></i>
+                        <h4>Polycrystalline Ingots</h4>
+                        <p class="material-short">Substrate preparation, bulk studies</p>
+                        <div class="material-details">
+                            <p>Dense polycrystalline ingots suitable for substrate preparation, thermal property measurements, and bulk material characterization. Cost-effective option for preliminary research.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
-                        <i class="fas fa-layer-group" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
-                        <h4 style="margin-bottom: 5px;">Thin Films</h4>
-                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Device integration, custom specs</p>
+                    <div class="material-card">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Thin Films</h4>
+                        <p class="material-short">Device integration, custom specs</p>
+                        <div class="material-details">
+                            <p>Custom-deposited thin films on various substrates including glass, silicon, and flexible materials. Controlled thickness from nanometers to micrometers with excellent uniformity.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
-                        <i class="fas fa-mortar-pestle"
-                            style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
-                        <h4 style="margin-bottom: 5px;">Powders</h4>
-                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Precursor material, research applications
-                        </p>
+                    <div class="material-card">
+                        <i class="fas fa-mortar-pestle"></i>
+                        <h4>Powders</h4>
+                        <p class="material-short">Precursor material, research applications</p>
+                        <div class="material-details">
+                            <p>Finely ground semiconductor powders in various mesh sizes. Perfect as precursor materials for film deposition, chemical synthesis, or composite material development.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
-                        <i class="fas fa-atom" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
-                        <h4 style="margin-bottom: 5px;">Nanostructures</h4>
-                        <p style="font-size: 0.9rem; color: #666; margin: 0;">Sensing, catalytic applications</p>
+                    <div class="material-card">
+                        <i class="fas fa-atom"></i>
+                        <h4>Nanostructures</h4>
+                        <p class="material-short">Sensing, catalytic applications</p>
+                        <div class="material-details">
+                            <p>Engineered nanoparticles and nanowires with controlled morphology. Enhanced surface area for catalysis, sensing applications, and quantum confinement studies.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center;">
-                        <i class="fas fa-file-alt" style="font-size: 2rem; color: #1a237e; margin-bottom: 10px;"></i>
-                        <h4 style="margin-bottom: 5px;">Exfoliated Flakes</h4>
-                        <p style="font-size: 0.9rem; color: #666; margin: 0;">2D material research</p>
+                    <div class="material-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>Exfoliated Flakes</h4>
+                        <p class="material-short">2D material research</p>
+                        <div class="material-details">
+                            <p>Mechanically or chemically exfoliated 2D flakes for cutting-edge research in van der Waals heterostructures, optoelectronics, and fundamental 2D physics studies.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -625,80 +948,171 @@
                 <h2>How Our Materials Are Made</h2>
                 <p>A meticulous journey from raw elements to research-grade semiconductors</p>
             </div>
-            <div class="timeline-steps">
-                <div class="timeline-step">
-                    <div class="step-icon">⚙️</div>
-                    <h4>Source & Prepare</h4>
-                    <p>High-purity starting materials carefully weighed to precise stoichiometric ratios</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="step-icon">🔥</div>
-                    <h4>Synthesize & Grow</h4>
-                    <p>Crystal growth using CVT and Bridgman-Stockbarger techniques</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="step-icon">🔬</div>
-                    <h4>Test & Verify</h4>
-                    <p>X-ray diffraction and spectroscopy for quality verification</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="step-icon">📦</div>
-                    <h4>Package & Ship</h4>
-                    <p>Vacuum-sealed packaging with full documentation worldwide</p>
+            <div class="timeline-zigzag">
+                <div class="timeline-line"></div>
+                <div class="timeline-items">
+                    <div class="timeline-item">
+                        <div class="timeline-top">
+                            <div class="timeline-content">
+                                <h4>Source & Prepare</h4>
+                                <p>High-purity starting materials carefully weighed to precise ratios</p>
+                            </div>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="timeline-bottom">
+                            <div class="timeline-content">
+                                <h4>Source & Prepare</h4>
+                                <p>High-purity starting materials carefully weighed to precise ratios</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-top">
+                            <div class="timeline-content">
+                                <h4>Synthesize & Grow</h4>
+                                <p>Crystal growth using CVT and Bridgman-Stockbarger techniques</p>
+                            </div>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-fire-alt"></i>
+                        </div>
+                        <div class="timeline-bottom">
+                            <div class="timeline-content">
+                                <h4>Synthesize & Grow</h4>
+                                <p>Crystal growth using CVT and Bridgman-Stockbarger techniques</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-top">
+                            <div class="timeline-content">
+                                <h4>Test & Verify</h4>
+                                <p>X-ray diffraction and spectroscopy for quality verification</p>
+                            </div>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="timeline-bottom">
+                            <div class="timeline-content">
+                                <h4>Test & Verify</h4>
+                                <p>X-ray diffraction and spectroscopy for quality verification</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-top">
+                            <div class="timeline-content">
+                                <h4>Package & Ship</h4>
+                                <p>Vacuum-sealed packaging with documentation worldwide</p>
+                            </div>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="timeline-bottom">
+                            <div class="timeline-content">
+                                <h4>Package & Ship</h4>
+                                <p>Vacuum-sealed packaging with documentation worldwide</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Industries We Serve Section -->
-    <section class="industries" style="padding: 100px 0; background: var(--gray-50);">
-        <div class="container">
-            <h2 class="section-title">Industries We Serve</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">☀️</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Renewable Energy & Solar</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our tin sulfide
-                        materials are critical components in thin-film photovoltaic research and development.
-                        Universities, national laboratories, and solar technology companies worldwide use our materials
-                        to advance next-generation solar cell technology.</p>
+    <section class="industries-section" style="padding: 100px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"rgba(255,255,255,0.03)\"/></svg>') repeat; background-size: 30px 30px;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title" style="color: white;">Industries We Serve</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 600px; margin: -30px auto 50px;">Powering innovation across multiple sectors with high-purity semiconductor materials</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="assets/Renewable Energy & Solar.png" alt="Renewable Energy & Solar">
+                        <div class="industry-overlay"></div>
+                        <div class="industry-content">
+                            <h3>Renewable Energy & Solar</h3>
+                            <p>Critical components for thin-film photovoltaic research. Used by universities, national labs, and solar tech companies to advance next-gen solar cell technology.</p>
+                            <div class="industry-tags">
+                                <span>Photovoltaics</span>
+                                <span>Thin Films</span>
+                                <span>Clean Energy</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔎</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Sensors & Detection</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">The gas sensing
-                        and photodetection properties of our materials make them invaluable for environmental
-                        monitoring, industrial safety, and advanced imaging systems. Our materials enable development of
-                        highly selective and sensitive detectors.</p>
+                
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="assets/Sensors & Detection.png" alt="Sensors & Detection">
+                        <div class="industry-overlay"></div>
+                        <div class="industry-content">
+                            <h3>Sensors & Detection</h3>
+                            <p>Gas sensing and photodetection for environmental monitoring, industrial safety, and advanced imaging systems. Enabling highly selective and sensitive detectors.</p>
+                            <div class="industry-tags">
+                                <span>Gas Sensors</span>
+                                <span>Photodetectors</span>
+                                <span>IR Imaging</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔋</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Energy Storage</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">With the growing
-                        demand for advanced battery technologies, our materials serve as high-performance anode
-                        materials for next-generation lithium-ion and sodium-ion batteries. The layered crystal
-                        structure enables efficient ion intercalation.</p>
+                
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="assets/Energy Storage.png" alt="Energy Storage">
+                        <div class="industry-overlay"></div>
+                        <div class="industry-content">
+                            <h3>Energy Storage</h3>
+                            <p>High-performance anode materials for next-gen lithium-ion and sodium-ion batteries. Layered crystal structure enables efficient ion intercalation.</p>
+                            <div class="industry-tags">
+                                <span>Li-ion Batteries</span>
+                                <span>Na-ion Batteries</span>
+                                <span>Anodes</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🎨</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Coatings & Decorative</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">Our SnS₂ materials
-                        have been used for centuries as mosaic gold pigment. Today, they serve architectural,
-                        automotive, and industrial coating applications where durability and distinctive golden
-                        appearance are required.</p>
+                
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="assets/Coatings & Decorative.png" alt="Coatings & Decorative">
+                        <div class="industry-overlay"></div>
+                        <div class="industry-content">
+                            <h3>Coatings & Decorative</h3>
+                            <p>SnS₂ as mosaic gold pigment for architectural, automotive, and industrial coating applications. Distinctive golden appearance with exceptional durability.</p>
+                            <div class="industry-tags">
+                                <span>Pigments</span>
+                                <span>Automotive</span>
+                                <span>Architecture</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div
-                    style="background: white; border: 1px solid #e0e0e0; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔬</div>
-                    <h3 style="color: #1a237e; margin-bottom: 15px;">Research & Academia</h3>
-                    <p style="color: #555; font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">We serve the
-                        global research community by providing high-quality materials for fundamental studies and
-                        applied research. Our materials support publications, patents, and breakthrough discoveries at
-                        leading institutions worldwide.</p>
+                
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <img src="assets/Research & Academia.png" alt="Research & Academia">
+                        <div class="industry-overlay"></div>
+                        <div class="industry-content">
+                            <h3>Research & Academia</h3>
+                            <p>Serving the global research community with materials for fundamental studies and applied research. Supporting publications, patents, and breakthrough discoveries.</p>
+                            <div class="industry-tags">
+                                <span>Universities</span>
+                                <span>R&D Labs</span>
+                                <span>Publications</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -768,7 +1182,7 @@
                     <!-- Map -->
                     <div style="flex: 1; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); min-height: 280px;">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.847068668034!2d81.6296!3d21.2514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dda23be28229%3A0x5f0329e7a7b0c3d7!2sFafadih%2C%20Raipur%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1706847200000!5m2!1sen!2sin" 
+                            src="https://maps.google.com/maps?q=21.2618234113142,81.64146725088706&t=&z=17&ie=UTF8&iwloc=B&output=embed" 
                             width="100%" 
                             height="100%" 
                             style="border:0; min-height: 280px;" 
@@ -955,6 +1369,50 @@
                 if (rect.top < window.innerHeight - 100) {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
+                }
+            });
+            
+            // Material cards scroll animation
+            const materialCards = document.querySelectorAll('.material-card');
+            materialCards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calculate how far into the viewport the card is
+                const cardCenter = rect.top + rect.height / 2;
+                const viewportCenter = windowHeight / 2;
+                const distanceFromCenter = Math.abs(cardCenter - viewportCenter);
+                const maxDistance = windowHeight / 2;
+                
+                // If card is visible in viewport
+                if (rect.top < windowHeight - 50 && rect.bottom > 50) {
+                    card.classList.add('in-view');
+                    
+                    // Scale based on proximity to viewport center
+                    const proximity = 1 - (distanceFromCenter / maxDistance);
+                    const scale = 0.95 + (proximity * 0.08); // Scale from 0.95 to 1.03
+                    const opacity = 0.7 + (proximity * 0.3); // Opacity from 0.7 to 1
+                    
+                    card.style.transform = `scale(${Math.min(scale, 1.03)})`;
+                    card.style.opacity = Math.min(opacity, 1);
+                } else {
+                    card.classList.remove('in-view');
+                    card.style.transform = 'scale(0.9)';
+                    card.style.opacity = '0.5';
+                }
+            });
+            
+            // Industry cards scroll animation with stagger
+            const industryCards = document.querySelectorAll('.industry-card');
+            industryCards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Trigger when card enters viewport with staggered delay
+                if (rect.top < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.classList.add('in-view');
+                    }, index * 100); // Stagger animation by 100ms per card
                 }
             });
         };
