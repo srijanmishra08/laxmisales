@@ -99,10 +99,46 @@
             .industries-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .industries-grid .industry-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .industries-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .industries-grid .industry-card:last-child {
+                max-width: 100%;
+            }
+            .industry-image {
+                height: 200px !important;
+            }
+            .industry-content {
+                padding: 20px !important;
+            }
+            .industry-content h3 {
+                font-size: 1.1rem !important;
+            }
         }
         @media (max-width: 640px) {
             .industries-grid {
                 grid-template-columns: 1fr;
+            }
+            .industry-image {
+                height: 180px !important;
+            }
+            .industry-content {
+                padding: 15px !important;
+            }
+            .industry-content h3 {
+                font-size: 1rem !important;
+            }
+            .industry-tags span {
+                font-size: 0.7rem !important;
+                padding: 4px 10px !important;
             }
         }
         .industry-card {
@@ -809,8 +845,8 @@
             <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="product-card">
                     <a href="lead-tin-sulfide.html">
-                        <img src="https://cpimg.tistatic.com/10434183/b/4/Black-Lead-Tin-Sulfide..jpg"
-                            alt="Lead Tin Sulfide PbSnS2">
+                        <img src="assets/s13.jpeg"
+                            alt="Lead Tin Sulfide PbSnS2" style="object-fit: cover; object-position: center top;">
                     </a>
                     <div class="product-info">
                         <h4><a href="lead-tin-sulfide.html">Lead Tin Sulfide (PbSnS₂)</a></h4>
@@ -822,7 +858,7 @@
                 </div>
                 <div class="product-card">
                     <a href="tin-ii-sulfide.html">
-                        <img src="assets/close%20up%202.jpg"
+                        <img src="https://cpimg.tistatic.com/10599990/b/4/SnS2-Lead-Tin-Sulfide..jpg"
                             alt="Tin II Sulfide SnS">
                     </a>
                     <div class="product-info">
@@ -933,7 +969,7 @@
                 <div class="story-visual">
                     <img src="assets/close%20up%202.jpg" alt="Tin Sulfide Crystal">
                     <div class="story-badge">
-                        <span class="badge-number">8+</span>
+                        <span class="badge-number">16</span>
                         <span class="badge-text">Years of Excellence</span>
                     </div>
                 </div>
